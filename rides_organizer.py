@@ -168,6 +168,26 @@ def match_all():
     match(sriders_flexible, sdrivers)
 
 
+def write_cars_vertical(cars):
+    """
+    Ad-hoc solution to make spreadsheet copiable outputs
+    """
+    
+
+    copy_output_file = "copy_paste.csv"
+    # try:
+    with open(copy_output_file, 'w') as text_file:
+        for car in cars:
+            text_file.write((car["driver"]) + "\n")
+            for rider_key in car:
+                if rider_key.startswith("rider #"):
+                    text_file.write((car[rider_key][0]) + "\n")
+            text_file.write("\n")
+
+    # except IOError:
+        # print("I/O error") 
+
+
 # turn these mantches into a list of dicts
 def write():
     final_matches = []
@@ -186,6 +206,8 @@ def write():
         final_matches.append(d)
 
     pprint(final_matches)
+
+    write_cars_vertical(final_matches)
 
     cols = final_matches[0].keys()
     csv_file = "matches.csv"
