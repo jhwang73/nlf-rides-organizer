@@ -6,6 +6,11 @@ __pycache__/
 # C extensions
 *.so
 
+matches.csv
+nlf_rides.csv
+unmatched.csv
+copy_paste.csv
+
 # Distribution / packaging
 .Python
 build/
